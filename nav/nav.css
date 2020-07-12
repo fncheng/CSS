@@ -1,0 +1,63 @@
+ul {
+    list-style-type: none; /*远点的样式 无*/
+    margin: 0; /*外边距*/
+    padding: 0; /*内边距*/
+}
+
+a:link,a:visited {
+    display: block; /*块元素,默认独占一行*/
+    width: 100px; /*设定宽度*/
+    font-weight: bold; /*粗体显示*/
+    color: #FFFFFF; /*文字颜色*/
+    background-color: #98bf21; /*背景色*/
+    text-align: center; /*文字居中*/
+    text-decoration: none; /*去除链接底部的下划线*/
+    padding: 4px; /*内边距*/
+}
+
+a:hover,a:hover {
+    background-color:#7A991A; /*点击态*/
+}
+
+div.nav {
+    border: 1px solid #FFFFFF;
+    /*width: 600px;*/
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+li {
+    /*display: inline;*/
+    float:left;
+}
+
+/*下拉菜单*/
+
+/*li a:hover, .dropdown:hover .dropbtn {*/
+    /*background-color: #111;*/
+/*}*/
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #7A991A}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

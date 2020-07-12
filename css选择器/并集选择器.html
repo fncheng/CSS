@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>16-css并集选择器.html</title>
+    <!--
+        并集选择器
+        1,格式:
+        选择器1,选择器2,...{
+                属性:值;
+           }
+        2,注意点:
+        (1),选择器之间利用,连接
+        (2),选择器可以是标签名称,也可以是id、class名称
+    -->
+    <style>
+        .ht,
+        .para {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="ht">我是头</h1>
+    <p class="para">我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+</body>
+
+</html>
