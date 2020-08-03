@@ -1,0 +1,20 @@
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  display: none;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+/*# sourceMappingURL=modal.css.map */
