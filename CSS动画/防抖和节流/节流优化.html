@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div id="header" class="visible">123</div>
+    <div id="content"></div>
+  </div>
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script> -->
+  <script>
+    // 节流
+    // 第三版
+    function throttle(func, wait) {
+      var timeout, context, args, result;
+      var previous = 0;
+
+      var later = function () {
+        previous = +new Date();
+        timeout = null;
+        func.apply(context, args)
+      };
+
+      var throttled = function () {
+        var now = +new Date();
+        //下次触发 func 剩余的时间
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+        // 如果没有剩余的时间了或者你改了系统时间
+        if (remaining <= 0 || remaining > wait) {
+          if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+          }
+          previous = now;
+          func.apply(context, args);
+        } else if (!timeout) {
+          timeout = setTimeout(later, remaining);
+        }
+      };
+      return throttled;
+    }
+    let startY = 0
+    // 进行的操作函数
+    function navScroll(e) {
+      // console.log(this);
+      // console.log(e);
+      let distanceY = scrollY - startY
+      // 向下滑动300px则动态添加visible类名,隐藏导航栏
+      if (scrollY >= 300) {
+        document.getElementById('header').className = ''
+        if (distanceY < 0) {
+          console.log('向上滚动');
+          document.getElementById('header').className = 'visible'
+        } else if (distanceY > 0) {
+          console.log('向下滚动');
+        }
+      } else {
+        document.getElementById('header').className = 'visible'
+      }
+      // 更新初始滚动位置
+      startY = scrollY
+    }
+    let myNavScroll = throttle(navScroll, 50)
+    document.addEventListener('scroll', myNavScroll)
+
+  </script>
+</body>
+
+</html>
