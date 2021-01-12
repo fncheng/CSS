@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖</title>
+    <style>
+      #btn {
+        width: 100px;
+        height: 100px;
+        margin: 100px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">提交</button>
+    <button disabled id="btn1">5s后开始倒计时</button>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script>
+      // 防抖
+      function debonce(func, wait, immediate = true) {
+        let timeout
+        return function () {
+          let context = this
+          let args = arguments
+          let later = function () {
+            timeout = null
+            // 如果不是立即执行
+            if (!immediate) {
+              func.apply(context, args)
+            }
+          }
+          let callNow = immediate && !timeout
+          clearTimeout(timeout)
+          timeout = setTimeout(later, wait)
+          if (callNow) func.call(context, args)
+        }
+      }
+      // let myClick = (document.querySelector('#btn').onmouseover = () => {
+      //   console.log('鼠标移入')
+      // })
+
+      // let myOver = (document.querySelector('#btn').onmouseout = () => {
+      //   console.log('鼠标移出')
+      // })
+      // debonce(myClick, 1000)
+      let btn = document.getElementById('btn')
+      let btn1 = document.getElementById('btn1')
+      let time = 5
+      function fn() {
+        time = 5
+        let clock = setInterval(() => {
+          time--
+          btn1.innerText = `${time}s后开始倒计时`
+          if (time === 0) {
+            clearInterval(clock)
+            btn1.innerText = '倒计时结束'
+          }
+        }, 1000)
+      }
+      let myFn = debonce(fn, 2000, true)
+      btn.addEventListener('click', myFn)
+      // btn.addEventListener('click', _.throttle(fn, 2000))
+    </script>
+  </body>
+</html>

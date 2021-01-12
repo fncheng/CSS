@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="header" class="visible">123</div>
+      <div id="content"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script> -->
+    <script>
+      let startY = 0
+      // 进行的操作函数
+      function navScroll(e) {
+        // console.log(this);
+        // console.log(e);
+        let distanceY = scrollY - startY
+        // 向下滑动300px则动态添加visible类名,隐藏导航栏
+        if (scrollY >= 300) {
+          document.getElementById('header').className = ''
+          if (distanceY < 0) {
+            console.log('向上滚动')
+            document.getElementById('header').className = 'visible'
+          } else if (distanceY > 0) {
+            console.log('向下滚动')
+          }
+        } else {
+          document.getElementById('header').className = 'visible'
+        }
+        // 更新初始滚动位置
+        startY = scrollY
+      }
+      // _.debounce(func, [wait=0], [options=])防抖函数
+      // https://www.lodashjs.com/docs/lodash.debounce#_debouncefunc-wait0-options
+      let myNavScroll = _.debounce(navScroll, 10)
+      document.addEventListener('scroll', myNavScroll)
+    </script>
+  </body>
+</html>
