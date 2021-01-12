@@ -36,18 +36,11 @@
           if (callNow) func.call(context, args)
         }
       }
-      // let myClick = (document.querySelector('#btn').onmouseover = () => {
-      //   console.log('鼠标移入')
-      // })
-
-      // let myOver = (document.querySelector('#btn').onmouseout = () => {
-      //   console.log('鼠标移出')
-      // })
-      // debonce(myClick, 1000)
       let btn = document.getElementById('btn')
       let btn1 = document.getElementById('btn1')
       let time = 5
       function fn() {
+        console.log(1)
         time = 5
         let clock = setInterval(() => {
           time--
