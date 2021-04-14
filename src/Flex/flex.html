@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #box {
+        display: flex;
+        width: 200px;
+        height: 200px;
+      }
+      .item {
+        /* flex: 1; */
+        /* 等效于 */
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        background-color: antiquewhite;
+      }
+      .item:nth-child(1) {
+        flex-grow: 5;
+        flex-shrink: 1;
+        flex-basis: 40px;
+      }
+      .item:nth-child(2) {
+        flex-grow: 3;
+        flex-shrink: 2;
+        flex-basis: 60px;
+      }
+      .item:nth-last-child(1) {
+        flex-grow: 2;
+        flex-shrink: 3;
+        flex-basis: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+  </body>
+</html>
