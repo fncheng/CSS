@@ -1,0 +1,25 @@
+@media screen and (max-width: 760px) {
+  html {
+    font-size: 24px;
+    color: royalblue;
+  }
+}
+/* 视口宽度小于720px时生效 */
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 16px;
+    color: red;
+  }
+}
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 16px;
+    color: gold;
+  }
+}
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 16px;
+    color: sandybrown;
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 200px;
+        height: 900px;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" style="height: 100px"></div>
+    <script>
+      // HTMLElement.style 只能用于获取内联样式,而获取不到层叠样式表的样式
+      var app = document.getElementById('app');
+      var inneHeight = window.inneHeight;
+      console.log(app.style);
+      // 设置样式
+      app.setAttribute('style', 'height: 200px');
+      console.log(app.style.height);
+    </script>
+  </body>
+</html>

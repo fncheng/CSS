@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css-complete@2.0.0/reset.css"
+    />
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: sandybrown;
+      }
+      #app {
+        float: left;
+        background-color: slateblue;
+        /* margin-left: 100px; */
+      }
+      .main {
+        width: 150px;
+        background-color: tomato;
+      }
+      /* 清除浮动 */
+      /* * {
+        clear: left;
+      } */
+    </style>
+    <!-- 
+      什么是浮动元素：浮动元素同时处于常规流内和常规流外的元素，其中块级元素会认为浮动元素不存在。而浮动元素会影响行内元素的布局，浮动元素会通过影响行内元素的布局间接影响包含块的布局。
+        常规流：页面上从左往右，从上往下排列的元素流，就是常规流
+        脱离常规流：绝对定位，fixed定位的元素有自己固定的位置，脱离了常规流
+        包含块：一个元素离它最近的块级元素是它的包含块
+     -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="main"></div>
+    <span>abcdefghijklmnopqrstuvwxyz</span>
+    <span style="float: left">123</span>
+    <!-- 
+      浮动元素会按顺序排列
+     -->
+    <div style="background-color: blue; float: left"></div>
+    <div style="float: left; height: 10px"></div>
+    <span>456</span>
+    <div style="float: left; height: 20px"></div>
+    <br />
+    <span>123</span>
+    <span>456</span>
+  </body>
+</html>
